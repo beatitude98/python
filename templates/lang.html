@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>언어 판별</title>
+</head>
+<body>
+<form method="post" action="/lang">
+
+    <div>
+        <textarea cols="40" rows="10" name="text">{{ text }}</textarea>
+    </div>
+
+    <div>
+    <button type="submit">판정</button>
+    </div>
+
+</form>
+<div>결과: {{ language }}</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <div class="container-fluid">
+        <h2 class="h2 text-center">
+            Todo Application
+        </h2>
+    </div>
+</header>
+<main class="container">
+    <!--  to do 입력하는 공간-->
+    <section>
+        <form method="post" action="/todo">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="item" placeholder="To Do를 입력하시오" aria-label="Recipient's username"
+                       aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">등록</button>
+            </div>
+        </form>
+    </section>
+    <!--  to do list 보여주는 공간-->
+{% if todo %}
+	 <article>
+        <h4 class="h4 text-center">Todo Item</h4>
+        <div class="card">
+            <div class="card-body">
+                <div class="text-danger">ID: {{ todo.id }}</div>
+                <div class="text-success">ITEM: {{ todo.item }}</div>
+            </div>
+        </div>
+    </article>
+{% else %}
+    <article>
+        <h4 class="h4 text-center">Todo List</h4>
+        <div class="card">
+            <ol class="list-group list-group-numbered">
+                {% for todo in todos %}
+                <li class="list-group-item">
+                    <a href="/todo/{{ todo.id }}">{{ todo.item }}</a>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </article>
+{% endif %}
+
+
+</main>
+<main></main>
+<footer></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
