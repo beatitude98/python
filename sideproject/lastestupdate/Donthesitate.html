@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do not hesitate Anymore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+    <style>
+        .header img {
+            margin-left: 10px;
+            border-radius: 25px;
+            border: 2px solid;
+            border-color: red green yellow blue;
+        }
+
+        .header a {
+            margin: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .logo {
+            height: 150px;
+            text-align: center;
+            /* 임시 */
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            width: 400px;
+        }
+
+        .search-box {
+            height: 50px;
+            text-align: center;
+        }
+
+        .search-box input {
+            width: 400px;
+            height: 40px;
+            border: 0;
+            border-radius: 25px;
+
+            box-shadow: 0px 0px 4px 1px gray;
+            padding-left: 10px;
+        }
+
+        .bottom {
+            height: 200px;
+        }
+
+        .site-box {
+            width: 400px;
+            /* 부모의 높이로 적용된다. */
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            /* 자식요소가 부모요소의 크기를 벗어나는 경우 */
+            /* wrap이면 줄바꿈이 일어남, nowrap이면 우겨넣는다. */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .site-box>a:hover {
+            background-color: gainsboro;
+        }
+
+        .site-box img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .site-box>a {
+            /* 수식이 계산된 px단위가 적용된다 */
+            width: calc(100% / 5 - 2px);
+            height: 100px;
+
+            display: flex;
+            /* 정렬 방향을 수직으로 변경 */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .site-box p {
+            margin: 5px;
+            /* 글자 크기 조정 */
+            font-size: 13px;
+            /* 폰트 설정 */
+            /* 영문 폰트는 한글 글씨체가 없을 수 있다. */
+            /* 폰트명에 공백이 포함되어 있으면 작은 따옴표나 큰 따옴표로 둘러싸준다. */
+            /* 폰트명을 여러개 적어놓으면 왼쪽부터 차례대로 */
+            /* 폰트가 적용되는데. 예를 들어 첫번째 폰트가
+                    적용이 잘 되었다면 이후 폰트는 무시 */
+            /* 구글 폰트 검색 ㄱㄱ */
+            font-family: 'Diphylleia', serif;
+        }
+
+        .fixed {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 25px;
+            border: 0;
+            box-shadow: 0px 0px 5px 1px gainsboro;
+        }
+
+        .fixed p {
+            display: inline;
+            color: blueviolet;
+        }
+
+        .fixed:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+
+        .fixed>p>img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+{#        <div class="header">#}
+{#            <a href="">Gmail</a>#}
+{#            <a href="">이미지</a>#}
+{#            <img width="50px" height="50px" src="data:image/png;base64,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" alt="">#}
+{#        </div>#}
+        <div class="logo">
+        </div>
+        <div>
+            <div class="search-box">
+                <input type="text" placeholder="상품명 검색" name="" id="">
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="site-box">
+                <a href="https://cafe.naver.com/joonggonara">
+                    <img src="junggonara.png">
+                    <p>중고나라</p>
+                </a>
+                <a href="https://m.bunjang.co.kr/">
+                    <img src="번개장터로고.jpeg">
+                    <p>번개장터</p>
+                </a>
+                <a href="https://www.daangn.com/">
+                    <img src="carrot.jpeg">
+                    <p>당근마켓</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223158030965">
+                    <img src="creed.png">
+                    <p>크리드</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223182835982">
+                    <img src="딥디크.jpeg">
+                    <p>딥티크</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223209674913">
+                    <img src="톰포드로고.png">
+                    <p>톰포드</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223186237394">
+                    <img src="르라보로고.jpeg">
+                    <p>르라보</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223232242331">
+                    <img src="커정로고.png">
+                    <p>메종프란시스커정</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223229109534">
+                    <img src="프말로고.png">
+                    <p>프레데릭말</p>
+                </a>
+                <a href="https://blog.naver.com/beatitude98/223210640728">
+                    <img src="이솝로고.png">
+                    <p>이솝</p>
+                </a>
+
+
+
+
+            </div>
+        </div>
+{#        <div class="fixed">#}
+{#            <p><img src="../resources/images/pencil.png" alt=""> Chrome 맞춤 설정</p>#}
+{#        </div>#}
+    </div>
+</body>
+</html>

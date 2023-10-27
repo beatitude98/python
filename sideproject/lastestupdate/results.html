@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>검색 결과</title>
+</head>
+<body>
+    <h1>검색 결과:</h1>
+    <ul>
+        {% for product in products %}
+            <li>상품명: {{ product[0] }}, 가격: {{ product[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
