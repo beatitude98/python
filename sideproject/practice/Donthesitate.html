@@ -8,28 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
     <style>
-        .header img {
-            margin-left: 10px;
-            border-radius: 25px;
-            border: 2px solid;
-            border-color: red green yellow blue;
-        }
 
-        .header a {
-            margin: 10px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .header a:hover {
-            text-decoration: underline;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: end;
-        }
 
         .logo {
             height: 150px;
@@ -63,13 +42,10 @@
 
         .site-box {
             width: 400px;
-            /* 부모의 높이로 적용된다. */
             height: 100%;
             margin: auto;
 
             display: flex;
-            /* 자식요소가 부모요소의 크기를 벗어나는 경우 */
-            /* wrap이면 줄바꿈이 일어남, nowrap이면 우겨넣는다. */
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -85,12 +61,9 @@
         }
 
         .site-box>a {
-            /* 수식이 계산된 px단위가 적용된다 */
             width: calc(100% / 5 - 2px);
             height: 100px;
-
             display: flex;
-            /* 정렬 방향을 수직으로 변경 */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -100,45 +73,10 @@
 
         .site-box p {
             margin: 5px;
-            /* 글자 크기 조정 */
             font-size: 13px;
-            /* 폰트 설정 */
-            /* 영문 폰트는 한글 글씨체가 없을 수 있다. */
-            /* 폰트명에 공백이 포함되어 있으면 작은 따옴표나 큰 따옴표로 둘러싸준다. */
-            /* 폰트명을 여러개 적어놓으면 왼쪽부터 차례대로 */
-            /* 폰트가 적용되는데. 예를 들어 첫번째 폰트가
-                    적용이 잘 되었다면 이후 폰트는 무시 */
-            /* 구글 폰트 검색 ㄱㄱ */
             font-family: 'Diphylleia', serif;
         }
 
-        .fixed {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            padding-left: 12px;
-            padding-right: 12px;
-            border-radius: 25px;
-            border: 0;
-            box-shadow: 0px 0px 5px 1px gainsboro;
-        }
-
-        .fixed p {
-            display: inline;
-            color: blueviolet;
-        }
-
-        .fixed:hover {
-            cursor: pointer;
-            background-color: #fafafa;
-        }
-
-        .fixed>p>img {
-            width: 20px;
-            height: 20px;
-        }
     </style>
 </head>
 <body>
@@ -151,10 +89,12 @@
         </div>
         <div class="logo">
         </div>
-        <div>
-            <div class="search-box">
-                <input type="text" placeholder="상품명 검색" name="" id="">
-            </div>
+        <div class="search-box">
+            <form method="POST" action="/result">
+                <label for="search-box"></label><br>
+                <input type="text" name="search-box" class="form-control" id="search-box" placeholder="상품명 검색">
+                    <button type="submit">검색</button>
+            </form>
         </div>
         <div class="bottom">
             <div class="site-box">

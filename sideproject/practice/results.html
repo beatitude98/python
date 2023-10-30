@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>크롤링 결과</title>
+</head>
+<body>
+    <h1>{{ search_product }}의 검색 결과</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product[0] }} - 가격: {{ product[1] }}원</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
